@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    volumes:
+      - ./src:/var/www/html
+      - ./resources:/var/www/html/data
+    ports:
+      - 80:80
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+
+
